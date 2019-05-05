@@ -16,7 +16,6 @@ for ($i=0; $i<count($feeds[data]); $i++) {
     for ($j=0; $j<count($comments[data]); $j++) {
         $cmtid = $comments[data][$j][id];
         $ownid = $comments[data][$j][from][id];
-        $msgid = $comments[data][$j][message];
         if ($ownid == $selfid) {
             atcurl('https://graph.facebook.com/'.$cmtid.'?method=delete&access_token='.$token);
         }
