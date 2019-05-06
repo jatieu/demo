@@ -16,8 +16,11 @@ for ($i=0; $i<count($feeds[data]); $i++) {
     for ($j=0; $j<count($comments[data]); $j++) {
         $cmtid = $comments[data][$j][id];
         $ownid = $comments[data][$j][from][id];
+        $msgid = $comments[data][$j][message];
         if ($ownid == $selfid) {
             atcurl('https://graph.facebook.com/'.$cmtid.'?method=delete&access_token='.$token);
+            echo 'Đã xóa bình luận tại bài post: <a href="https://www.facebook.com/'.$posid.'" target="blank">Link</a><br/>';
+            echo 'Message: '.$msgid.'<br/><br/>';
         }
     }
 }
